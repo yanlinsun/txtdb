@@ -1,0 +1,16 @@
+{
+  "name": "txtdb",
+  "version": "1.0.0",
+  "description": "Simple DB in Plain Text File",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha",
+    "test-debug": "mocha --inspect-brk"
+  },
+  "repository": "https://github.com/yanlinsun/txtdb.git",
+  "keywords": [
+    "txtdb"
+  ],
+  "author": "Yanlin Sun",
+  "license": "MIT-2.0"
+}

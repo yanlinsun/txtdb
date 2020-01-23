@@ -1,0 +1,10 @@
+Table: BasicMaterials
+Material    UOM     Density
+Wood        CM3     0.8
+Alumnium    CM3     1.2
+
+Table: Materials
+Material            Material Group
+[Decking Board]     [Decking Board]
+[Decking Board Stripped][Decking Board]
+[Decking Board Smooth]  [Decking Board]
