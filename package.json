@@ -4,6 +4,8 @@
   "description": "Simple DB in Plain Text File",
   "main": "main.js",
   "scripts": {
+    "start": "node .",
+    "debug": "node . --inspect",
     "test": "mocha",
     "test-debug": "mocha --inspect-brk"
   },
@@ -12,5 +14,9 @@
     "txtdb"
   ],
   "author": "Yanlin Sun",
-  "license": "MIT-2.0"
+  "license": "MIT-2.0",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1"
+  }
 }

@@ -5,34 +5,52 @@ const util = require('./util.js');
 class TxtTable {
     constructor(tableName) {
         this.tableName = tableName;
-        this.attributes = null;
+        this.attributes = [];
         this._key = null;
         this.lines = new Map();
     }
 
-    hasAttributes() {
-        return !(this.attributes === null || this.attributes.length === 0);
+    get name() {
+        return this.tableName;
     }
 
-    setAttributes(line) {
+    get key() {
+        return this._key;
+    }
+
+    setColumns(line) {
         let items = util.parseLine(line);
         if (items) {
-            this.attributes = items;
+            for (let i in items) {
+                this.attributes.push(util.trim(items[i]));
+            }
         }
-        this._key = items[0];
+        if (this.attributes.length > 0) {
+            this._key = this.attributes[0];
+        }
     }
 
-    addLine(line) {
+    addRow(line) {
         let items = util.parseLine(line);
         let obj = new Object();
         for (let i = 0; i < Math.min(items.length, this.attributes.length); i++) {
             obj[this.attributes[i]] = items[i];
         }
-        obj.key = obj[this.attributes[0]];
-        this.lines.set(this._key, obj);
+        obj.key = obj[this._key];
+        this.lines.set(obj.key, obj);
     }
 
-    counts() {
+    get rows() {
+        return Array.from(this.lines.values());
+    }
+
+    get columns() {
+        return Array.from(this.attributes.values());
+    }
+
+    get count() {
         return this.lines.size();
     }
 }
+
+module.exports = TxtTable;
